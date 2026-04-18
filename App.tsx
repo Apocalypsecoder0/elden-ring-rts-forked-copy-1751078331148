@@ -21,8 +21,16 @@ import CharacterLoadouts from "./screens/CharacterLoadouts"
 import WorldMap from "./screens/WorldMap"
 import WorldLocations from "./screens/WorldLocations"
 import WorldFastTravel from "./screens/WorldFastTravel"
+import WorldCovenants from "./screens/WorldCovenants"
+import WorldExploration from "./screens/WorldExploration"
+import WorldBosses from "./screens/WorldBosses"
+import WorldEvents from "./screens/WorldEvents"
+import WorldWeather from "./screens/WorldWeather"
+import WorldFactions from "./screens/WorldFactions"
 import CombatArena from "./screens/CombatArena"
 import CombatMultiplayer from "./screens/CombatMultiplayer"
+import CombatBattles from "./screens/CombatBattles"
+import CombatTactics from "./screens/CombatTactics"
 import PartyCreate from "./screens/PartyCreate"
 import GuildManagement from "./screens/GuildManagement"
 import DungeonCrawler from "./screens/DungeonCrawler"
@@ -54,10 +62,18 @@ export type RootStackParamList = {
   WorldMap: undefined;
   WorldLocations: undefined;
   WorldFastTravel: undefined;
+  WorldCovenants: undefined;
+  WorldExploration: undefined;
+  WorldBosses: undefined;
+  WorldEvents: undefined;
+  WorldWeather: undefined;
+  WorldFactions: undefined;
 
   // Combat screens
   CombatArena: undefined;
   CombatMultiplayer: undefined;
+  CombatBattles: undefined;
+  CombatTactics: undefined;
 
   // Social screens
   PartyCreate: undefined;
@@ -103,10 +119,18 @@ function RootStack() {
       <Stack.Screen name="WorldMap" component={WorldMap} />
       <Stack.Screen name="WorldLocations" component={WorldLocations} />
       <Stack.Screen name="WorldFastTravel" component={WorldFastTravel} />
+      <Stack.Screen name="WorldCovenants" component={WorldCovenants} />
+      <Stack.Screen name="WorldExploration" component={WorldExploration} />
+      <Stack.Screen name="WorldBosses" component={WorldBosses} />
+      <Stack.Screen name="WorldEvents" component={WorldEvents} />
+      <Stack.Screen name="WorldWeather" component={WorldWeather} />
+      <Stack.Screen name="WorldFactions" component={WorldFactions} />
 
       {/* Combat screens */}
       <Stack.Screen name="CombatArena" component={CombatArena} />
       <Stack.Screen name="CombatMultiplayer" component={CombatMultiplayer} />
+      <Stack.Screen name="CombatBattles" component={CombatBattles} />
+      <Stack.Screen name="CombatTactics" component={CombatTactics} />
 
       {/* Social screens */}
       <Stack.Screen name="PartyCreate" component={PartyCreate} />
