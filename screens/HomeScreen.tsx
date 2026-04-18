@@ -544,7 +544,7 @@ export default function HomeScreen() {
                   {menu.submenus.map((submenu) => (
                     <Pressable 
                       key={submenu.id}
-                      style={({ pressed }) => [
+                      style={({ pressed }: { pressed: boolean }) => [
                         styles.submenuItem,
                         pressed && styles.submenuPressed,
                         SAMPLE_PLAYER.level < submenu.level && styles.submenuLocked

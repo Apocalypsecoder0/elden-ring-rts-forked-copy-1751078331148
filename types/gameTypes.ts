@@ -595,6 +595,98 @@ export interface WorldBoss {
   currentHealth?: number;
 }
 
+// Dungeon Boss
+export interface DungeonBoss {
+  id: string;
+  name: string;
+  type: 'standard' | 'elite' | 'legendary' | 'mythic';
+  region: string;
+  level: number;
+  health: number;
+  damage: number;
+  defense: number;
+  abilities: string[];
+  phases?: number;
+  resistances: {
+    physical?: number;
+    fire?: number;
+    lightning?: number;
+    holy?: number;
+    magic?: number;
+    bleed?: number;
+    rot?: number;
+  };
+  weaknesses: {
+    physical?: number;
+    fire?: number;
+    lightning?: number;
+    holy?: number;
+    magic?: number;
+    bleed?: number;
+  };
+  rewards: {
+    experience: number;
+    runes: number;
+    drops: string[];
+  };
+  description: string;
+}
+
+// Boss Fight State
+export interface BossFight {
+  boss: DungeonBoss;
+  currentPhase: number;
+  currentHealth: number;
+  maxHealth: number;
+  playerHealth: number;
+  playerMaxHealth: number;
+  turn: number;
+  status: 'active' | 'victory' | 'defeat' | 'paused';
+  battleLog: string[];
+  playerBuffs: Buff[];
+  bossBuffs: Buff[];
+  playerCooldowns: Record<string, number>;
+  bossCooldowns: Record<string, number>;
+}
+
+// Boss Phase
+export interface BossPhase {
+  phaseNumber: number;
+  name: string;
+  healthThreshold: number;
+  description: string;
+  abilities: BossAbility[];
+  resistances: Record<string, number>;
+  weaknesses: Record<string, number>;
+  specialEffects?: string[];
+}
+
+// Boss Ability
+export interface BossAbility {
+  id: string;
+  name: string;
+  description: string;
+  damage: number;
+  damageType: 'physical' | 'fire' | 'lightning' | 'holy' | 'magic' | 'bleed' | 'rot';
+  cooldown: number;
+  range: 'melee' | 'ranged' | 'area';
+  effects?: string[];
+  animation?: string;
+}
+
+// Buff/Debuff System
+export interface Buff {
+  id: string;
+  name: string;
+  description: string;
+  type: 'buff' | 'debuff';
+  stat: string;
+  value: number;
+  duration: number;
+  remainingTurns: number;
+  source: 'player' | 'boss';
+}
+
 // Game Settings
 export interface GameSettings {
   difficulty: DifficultyMode;

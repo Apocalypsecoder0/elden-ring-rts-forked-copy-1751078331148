@@ -3,13 +3,41 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from "react-native-safe-area-context"
 import { Toaster } from 'sonner-native';
+
+// Import all screens
 import HomeScreen from "./screens/HomeScreen"
+import CharacterScreen from "./screens/CharacterScreen"
+import CharacterStatsScreen from "./screens/CharacterStatsScreen"
+import CharacterEquipment from "./screens/CharacterEquipment"
+import CharacterSkills from "./screens/CharacterSkills"
+import CharacterInventory from "./screens/CharacterInventory"
+import CharacterStatus from "./screens/CharacterStatus"
+import CharacterLeveling from "./screens/CharacterLeveling"
+import CharacterClasses from "./screens/CharacterClasses"
+import CharacterRaces from "./screens/CharacterRaces"
+import CharacterSubclasses from "./screens/CharacterSubclasses"
+import CharacterCustomization from "./screens/CharacterCustomization"
+import CharacterLoadouts from "./screens/CharacterLoadouts"
+import WorldMap from "./screens/WorldMap"
+import WorldLocations from "./screens/WorldLocations"
+import WorldFastTravel from "./screens/WorldFastTravel"
+import CombatArena from "./screens/CombatArena"
+import CombatMultiplayer from "./screens/CombatMultiplayer"
+import PartyCreate from "./screens/PartyCreate"
+import GuildManagement from "./screens/GuildManagement"
+import DungeonCrawler from "./screens/DungeonCrawler"
+import DungeonBoss from "./screens/DungeonBoss"
+import QuestLog from "./screens/QuestLog"
+import QuestTracker from "./screens/QuestTracker"
+import ItemCrafting from "./screens/ItemCrafting"
+import ItemTrading from "./screens/ItemTrading"
 
 // Define the navigation types
 export type RootStackParamList = {
   Home: undefined;
-  
+
   // Character screens
+  CharacterScreen: undefined;
   CharacterStats: undefined;
   CharacterEquipment: undefined;
   CharacterSkills: undefined;
@@ -21,78 +49,31 @@ export type RootStackParamList = {
   CharacterSubclasses: undefined;
   CharacterCustomization: undefined;
   CharacterLoadouts: undefined;
-  
+
   // World screens
   WorldMap: undefined;
   WorldLocations: undefined;
   WorldFastTravel: undefined;
-  WorldCovenants: undefined;
-  WorldExploration: undefined;
-  WorldBosses: undefined;
-  WorldEvents: undefined;
-  WorldWeather: undefined;
-  WorldFactions: undefined;
-  
+
   // Combat screens
-  CombatBattles: undefined;
-  CombatTactics: undefined;
-  CombatFormations: undefined;
-  CombatCommands: undefined;
-  CombatBosses: undefined;
-  CombatEncounters: undefined;
-  CombatRewards: undefined;
-  CombatDifficulty: undefined;
-  
-  // Multiplayer screens
-  MultiplayerCoop: undefined;
-  MultiplayerPvP: undefined;
-  MultiplayerMessages: undefined;
-  MultiplayerSummons: undefined;
-  MultiplayerGuilds: undefined;
-  MultiplayerParty: undefined;
-  MultiplayerGroupFinder: undefined;
-  MultiplayerRankings: undefined;
-  
-  // Dungeon & Raid screens
-  DungeonsList: undefined;
-  DungeonDetail: { dungeonId: string };
-  RaidsList: undefined;
-  RaidDetail: { raidId: string };
-  TrialsList: undefined;
-  TrialDetail: { trialId: string };
-  TowerSolo: undefined;
-  
+  CombatArena: undefined;
+  CombatMultiplayer: undefined;
+
+  // Social screens
+  PartyCreate: undefined;
+  GuildManagement: undefined;
+
+  // Dungeon screens
+  DungeonCrawler: undefined;
+  DungeonBoss: undefined;
+
   // Quest screens
-  QuestsMain: undefined;
-  QuestsSide: undefined;
-  QuestsContracts: undefined;
-  QuestsAchievements: undefined;
-  QuestsEvents: undefined;
-  QuestRewards: undefined;
-  QuestProgress: undefined;
-  
-  // Item & Equipment screens
-  ItemsInventory: undefined;
-  ItemsWeapons: undefined;
-  ItemsArmor: undefined;
-  ItemsConsumables: undefined;
-  ItemsMaterials: undefined;
-  ItemsRarity: undefined;
-  ItemsEquipmentSlots: undefined;
-  ItemsSetBonuses: undefined;
-  
-  // Crafting screens
-  CraftingSmithing: undefined;
-  CraftingAlchemy: undefined;
-  CraftingEnchanting: undefined;
-  CraftingCooking: undefined;
-  CraftingMaterials: undefined;
-  CraftingBlueprints: undefined;
-  
-  // Game Management screens
-  SaveLoad: undefined;
-  Settings: undefined;
-  DifficultySettings: undefined;
+  QuestLog: undefined;
+  QuestTracker: undefined;
+
+  // Item screens
+  ItemCrafting: undefined;
+  ItemTrading: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -103,86 +84,45 @@ function RootStack() {
       headerShown: false
     }}>
       <Stack.Screen name="Home" component={HomeScreen} />
-      
+
       {/* Character screens */}
-      {/* These screens would be implemented in a complete game */}
-      {/* 
+      <Stack.Screen name="CharacterScreen" component={CharacterScreen} />
       <Stack.Screen name="CharacterStats" component={CharacterStatsScreen} />
-      <Stack.Screen name="CharacterEquipment" component={CharacterEquipmentScreen} />
-      <Stack.Screen name="CharacterSkills" component={CharacterSkillsScreen} />
-      <Stack.Screen name="CharacterInventory" component={CharacterInventoryScreen} />
-      <Stack.Screen name="CharacterStatus" component={CharacterStatusScreen} />
-      <Stack.Screen name="CharacterLeveling" component={CharacterLevelingScreen} />
-      <Stack.Screen name="CharacterClasses" component={CharacterClassesScreen} />
-      <Stack.Screen name="CharacterRaces" component={CharacterRacesScreen} />
-      <Stack.Screen name="CharacterSubclasses" component={CharacterSubclassesScreen} />
-      <Stack.Screen name="CharacterCustomization" component={CharacterCustomizationScreen} />
-      <Stack.Screen name="CharacterLoadouts" component={CharacterLoadoutsScreen} />
-      
-      <Stack.Screen name="WorldMap" component={WorldMapScreen} />
-      <Stack.Screen name="WorldLocations" component={WorldLocationsScreen} />
-      <Stack.Screen name="WorldFastTravel" component={WorldFastTravelScreen} />
-      <Stack.Screen name="WorldCovenants" component={WorldCovenantsScreen} />
-      <Stack.Screen name="WorldExploration" component={WorldExplorationScreen} />
-      <Stack.Screen name="WorldBosses" component={WorldBossesScreen} />
-      <Stack.Screen name="WorldEvents" component={WorldEventsScreen} />
-      <Stack.Screen name="WorldWeather" component={WorldWeatherScreen} />
-      <Stack.Screen name="WorldFactions" component={WorldFactionsScreen} />
-      
-      <Stack.Screen name="CombatBattles" component={CombatBattlesScreen} />
-      <Stack.Screen name="CombatTactics" component={CombatTacticsScreen} />
-      <Stack.Screen name="CombatFormations" component={CombatFormationsScreen} />
-      <Stack.Screen name="CombatCommands" component={CombatCommandsScreen} />
-      <Stack.Screen name="CombatBosses" component={CombatBossesScreen} />
-      <Stack.Screen name="CombatEncounters" component={CombatEncountersScreen} />
-      <Stack.Screen name="CombatRewards" component={CombatRewardsScreen} />
-      <Stack.Screen name="CombatDifficulty" component={CombatDifficultyScreen} />
-      
-      <Stack.Screen name="MultiplayerCoop" component={MultiplayerCoopScreen} />
-      <Stack.Screen name="MultiplayerPvP" component={MultiplayerPvPScreen} />
-      <Stack.Screen name="MultiplayerMessages" component={MultiplayerMessagesScreen} />
-      <Stack.Screen name="MultiplayerSummons" component={MultiplayerSummonsScreen} />
-      <Stack.Screen name="MultiplayerGuilds" component={MultiplayerGuildsScreen} />
-      <Stack.Screen name="MultiplayerParty" component={MultiplayerPartyScreen} />
-      <Stack.Screen name="MultiplayerGroupFinder" component={MultiplayerGroupFinderScreen} />
-      <Stack.Screen name="MultiplayerRankings" component={MultiplayerRankingsScreen} />
-      
-      <Stack.Screen name="DungeonsList" component={DungeonsListScreen} />
-      <Stack.Screen name="DungeonDetail" component={DungeonDetailScreen} />
-      <Stack.Screen name="RaidsList" component={RaidsListScreen} />
-      <Stack.Screen name="RaidDetail" component={RaidDetailScreen} />
-      <Stack.Screen name="TrialsList" component={TrialsListScreen} />
-      <Stack.Screen name="TrialDetail" component={TrialDetailScreen} />
-      <Stack.Screen name="TowerSolo" component={TowerSoloScreen} />
-      
-      <Stack.Screen name="QuestsMain" component={QuestsMainScreen} />
-      <Stack.Screen name="QuestsSide" component={QuestsSideScreen} />
-      <Stack.Screen name="QuestsContracts" component={QuestsContractsScreen} />
-      <Stack.Screen name="QuestsAchievements" component={QuestsAchievementsScreen} />
-      <Stack.Screen name="QuestsEvents" component={QuestsEventsScreen} />
-      <Stack.Screen name="QuestRewards" component={QuestRewardsScreen} />
-      <Stack.Screen name="QuestProgress" component={QuestProgressScreen} />
-      
-      <Stack.Screen name="ItemsInventory" component={ItemsInventoryScreen} />
-      <Stack.Screen name="ItemsWeapons" component={ItemsWeaponsScreen} />
-      <Stack.Screen name="ItemsArmor" component={ItemsArmorScreen} />
-      <Stack.Screen name="ItemsConsumables" component={ItemsConsumablesScreen} />
-      <Stack.Screen name="ItemsMaterials" component={ItemsMaterialsScreen} />
-      <Stack.Screen name="ItemsRarity" component={ItemsRarityScreen} />
-      <Stack.Screen name="ItemsEquipmentSlots" component={ItemsEquipmentSlotsScreen} />
-      <Stack.Screen name="ItemsSetBonuses" component={ItemsSetBonusesScreen} />
-      
-      <Stack.Screen name="CraftingSmithing" component={CraftingSmithingScreen} />
-      <Stack.Screen name="CraftingAlchemy" component={CraftingAlchemyScreen} />
-      <Stack.Screen name="CraftingEnchanting" component={CraftingEnchantingScreen} />
-      <Stack.Screen name="CraftingCooking" component={CraftingCookingScreen} />
-      <Stack.Screen name="CraftingMaterials" component={CraftingMaterialsScreen} />
-      <Stack.Screen name="CraftingBlueprints" component={CraftingBlueprintsScreen} />
-      
-      <Stack.Screen name="SaveLoad" component={SaveLoadScreen} />
-      <Stack.Screen name="Settings" component={SettingsScreen} />
-      <Stack.Screen name="DifficultySettings" component={DifficultySettingsScreen} />
-      */}
+      <Stack.Screen name="CharacterEquipment" component={CharacterEquipment} />
+      <Stack.Screen name="CharacterSkills" component={CharacterSkills} />
+      <Stack.Screen name="CharacterInventory" component={CharacterInventory} />
+      <Stack.Screen name="CharacterStatus" component={CharacterStatus} />
+      <Stack.Screen name="CharacterLeveling" component={CharacterLeveling} />
+      <Stack.Screen name="CharacterClasses" component={CharacterClasses} />
+      <Stack.Screen name="CharacterRaces" component={CharacterRaces} />
+      <Stack.Screen name="CharacterSubclasses" component={CharacterSubclasses} />
+      <Stack.Screen name="CharacterCustomization" component={CharacterCustomization} />
+      <Stack.Screen name="CharacterLoadouts" component={CharacterLoadouts} />
+
+      {/* World screens */}
+      <Stack.Screen name="WorldMap" component={WorldMap} />
+      <Stack.Screen name="WorldLocations" component={WorldLocations} />
+      <Stack.Screen name="WorldFastTravel" component={WorldFastTravel} />
+
+      {/* Combat screens */}
+      <Stack.Screen name="CombatArena" component={CombatArena} />
+      <Stack.Screen name="CombatMultiplayer" component={CombatMultiplayer} />
+
+      {/* Social screens */}
+      <Stack.Screen name="PartyCreate" component={PartyCreate} />
+      <Stack.Screen name="GuildManagement" component={GuildManagement} />
+
+      {/* Dungeon screens */}
+      <Stack.Screen name="DungeonCrawler" component={DungeonCrawler} />
+      <Stack.Screen name="DungeonBoss" component={DungeonBoss} />
+
+      {/* Quest screens */}
+      <Stack.Screen name="QuestLog" component={QuestLog} />
+      <Stack.Screen name="QuestTracker" component={QuestTracker} />
+
+      {/* Item screens */}
+      <Stack.Screen name="ItemCrafting" component={ItemCrafting} />
+      <Stack.Screen name="ItemTrading" component={ItemTrading} />
     </Stack.Navigator>
   );
 }

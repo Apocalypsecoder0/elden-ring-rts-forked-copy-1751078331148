@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Elden Ring RTS",
+    "slug": "elden-ring-rts",
+    "version": "1.0.0",
+    "platforms": ["ios", "android", "web"],
+    "sdkVersion": "52.0.0",
+    "entryPoint": "node_modules/expo/AppEntry.js",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.apocalypsecoder0.eldenringrts"
+    },
+    "web": {
+      "build": {
+        "babel": {
+          "include": ["@expo/vector-icons"]
+        }
+      }
+    }
+  }
+}
