@@ -31,6 +31,11 @@ import CombatArena from "./screens/CombatArena"
 import CombatMultiplayer from "./screens/CombatMultiplayer"
 import CombatBattles from "./screens/CombatBattles"
 import CombatTactics from "./screens/CombatTactics"
+import CombatFormations from "./screens/CombatFormations"
+import MultiplayerCoop from "./screens/MultiplayerCoop"
+import MultiplayerPvP from "./screens/MultiplayerPvP"
+import MultiplayerMessages from "./screens/MultiplayerMessages"
+import MultiplayerGuilds from "./screens/MultiplayerGuilds"
 import PartyCreate from "./screens/PartyCreate"
 import GuildManagement from "./screens/GuildManagement"
 import DungeonCrawler from "./screens/DungeonCrawler"
@@ -74,10 +79,13 @@ export type RootStackParamList = {
   CombatMultiplayer: undefined;
   CombatBattles: undefined;
   CombatTactics: undefined;
+  CombatFormations: undefined;
 
-  // Social screens
-  PartyCreate: undefined;
-  GuildManagement: undefined;
+  // Multiplayer screens
+  MultiplayerCoop: undefined;
+  MultiplayerPvP: undefined;
+  MultiplayerMessages: undefined;
+  MultiplayerGuilds: undefined;
 
   // Dungeon screens
   DungeonCrawler: undefined;
@@ -131,10 +139,13 @@ function RootStack() {
       <Stack.Screen name="CombatMultiplayer" component={CombatMultiplayer} />
       <Stack.Screen name="CombatBattles" component={CombatBattles} />
       <Stack.Screen name="CombatTactics" component={CombatTactics} />
+      <Stack.Screen name="CombatFormations" component={CombatFormations} />
 
-      {/* Social screens */}
-      <Stack.Screen name="PartyCreate" component={PartyCreate} />
-      <Stack.Screen name="GuildManagement" component={GuildManagement} />
+      {/* Multiplayer screens */}
+      <Stack.Screen name="MultiplayerCoop" component={MultiplayerCoop} />
+      <Stack.Screen name="MultiplayerPvP" component={MultiplayerPvP} />
+      <Stack.Screen name="MultiplayerMessages" component={MultiplayerMessages} />
+      <Stack.Screen name="MultiplayerGuilds" component={MultiplayerGuilds} />
 
       {/* Dungeon screens */}
       <Stack.Screen name="DungeonCrawler" component={DungeonCrawler} />
